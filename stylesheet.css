@@ -1,0 +1,49 @@
+*{
+    margin: 0;
+    padding: 0;
+    text-decoration: 0;
+    font-family: "Futura", sans-serif;
+}
+
+header{
+    height: 90px;
+    background: #883E24;
+}
+
+.inner-width{
+    max-width: 1000px;
+    padding: 0 10px;
+    margin: auto;
+}
+
+.logo{
+    float:left;
+    padding: 20px 0;
+}
+
+.logo img{
+    height: 50px;
+}
+
+.navigation-menu{
+    float: right;
+    display: flex;
+    align-items: center;
+    min-height: 90px;
+}
+
+.navigation-menu a{
+    margin-left: 10px;
+    color: black;
+    text-transform: uppercase;
+    font-size: 14px;
+    padding: 11px 20px;
+    background: white;
+    border-radius: 4px;
+}
+
+.navigation-menu a:hover{
+    background: pink;
+    color: white;
+    transform: scale(1.1);
+}
