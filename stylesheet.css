@@ -1,49 +1,44 @@
-*{
-    margin: 0;
-    padding: 0;
-    text-decoration: 0;
-    font-family: "Futura", sans-serif;
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  font-size: 25px;
+  background-color: bisque;
+  font-family: Arial, Helvetica, sans-serif;
 }
 
-header{
-    height: 90px;
-    background: #883E24;
+
+li {
+  float: left;
 }
 
-.inner-width{
-    max-width: 1000px;
-    padding: 0 10px;
-    margin: auto;
+li navigation {
+  display: block;
+  text-align: center;
+  padding: 10px 15px;
+  color: white;
+  background-color: #883E24;
+  text-decoration: none;
 }
 
-.logo{
-    float:left;
-    padding: 20px 0;
+.width {
+  max-width: 100%;
+  height: auto;
 }
 
-.logo img{
-    height: 50px;
+img {
+  width: 100%;
+  height: auto;
 }
 
-.navigation-menu{
-    float: right;
-    display: flex;
-    align-items: center;
-    min-height: 90px;
+h2 {
+  text-decoration-line: underline;
+  text-decoration-style: double;
+  size: 50px;
+  text-align: center;
 }
 
-.navigation-menu a{
-    margin-left: 10px;
-    color: black;
-    text-transform: uppercase;
-    font-size: 14px;
-    padding: 11px 20px;
-    background: white;
-    border-radius: 4px;
-}
-
-.navigation-menu a:hover{
-    background: pink;
-    color: white;
-    transform: scale(1.1);
+p {
+  text-align: center;
 }
