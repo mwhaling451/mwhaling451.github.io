@@ -4,7 +4,7 @@
     <title>Contact Us!</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="stylesheet.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <h1 style="text-align:center; color:#883E24; font-family:Futura;">Contact Java Bean Coffee Co.</h1>
@@ -20,45 +20,29 @@
             <li><a href="locations.html"><i class="fas fa-home home"></i>Locations</a></li>
         </ul>
     </header>
-    <h1>Contact About Java Bean Coffee Co.</h1>
-    <form id="contactForm" class="form-horizontal">
-        <div class="form-group">
-            <label class="col-xs-3 control-label">Full name</label>
-            <div class="col-xs-4">
-                <input type="text" class="form-control" name="firstName" placeholder="First name" />
-            </div>
-            <div class="col-xs-4">
-                <input type="text" class="form-control" name="lastName" placeholder="Last name" />
-            </div>
-        </div>
-    
-        <div class="form-group">
-            <label class="col-xs-3 control-label">Phone number</label>
-            <div class="col-xs-5">
-                <input type="text" class="form-control" name="phoneNumber" />
-            </div>
-        </div>
-    
-        <div class="form-group">
-            <label class="col-xs-3 control-label">Email address</label>
-            <div class="col-xs-5">
-                <input type="text" class="form-control" name="email" />
-            </div>
-        </div>
-    
-        <div class="form-group">
-            <label class="col-xs-3 control-label">Message</label>
-            <div class="col-xs-9">
-                <textarea class="form-control" name="message" rows="7"></textarea>
-            </div>
-        </div>
-    
-        <div class="form-group">
-            <div class="col-xs-9 col-xs-offset-3">
-                <button type="submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-    </form>
+    <h1>Contact Java Bean Coffee Co.</h1>
+    <div class="form-container">
+        <h1>Contact Form</h1>
+        <form name="contactForm" method="post" onsubmit = "return validate()" action="#">
+          <label for="name">* Name</label>
+          <input type="text" id="name" name="name" placeholder="Your name" >
+          <span class="errors"></span><br>
+      
+          <label for="email">* Email</label>
+          <input type="text" placeholder="Email address" id="email" name="email" >
+          <span class="errors"></span><br>
+      
+          <label for="phone">* Phone</label>
+          <input type="text" placeholder="Phone number" id="phone" name="phone" >
+          <span class="errors"></span><br>
+          
+          <label for="subject">* Message</label>
+          <textarea placeholder="Your message" cols="132" rows="5" name="subject" id="subject"></textarea>
+          <span class="errors"></span><br>
+      
+          <button type="submit" value="Submit">Submit</button>
+        </form>
+      </div>
     
     <script>
    var validate = function(e) {
@@ -77,12 +61,12 @@
               removeSpan = fields[i].nextElementSibling;
               par = fields[i].parentNode;
               par.removeChild(removeSpan);
-              fields[i].nextElementSibling.innerHTML = "Hmmm! " + fields[i].placeholder + " is required?";
+              fields[i].nextElementSibling.innerHTML = "Hmmm! " + fields[i].placeholder + " is required!";
               fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
               check = false;
               errArr.push(fields[i]);
             }
-            fields[i].nextElementSibling.innerHTML = "Hmmm! " + fields[i].placeholder + " is required?";
+            fields[i].nextElementSibling.innerHTML = "Hmmm! " + fields[i].placeholder + " is required!";
             fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
             check = false;
             errArr.push(fields[i]);
@@ -106,7 +90,7 @@
             if(fields[i].id === 'phone') {
               val = isValidPhone(fields[i]);
               if(val === false) {
-                fields[i].nextElementSibling.innerHTML = "Hmmm! Your phone number is not valid?";
+                fields[i].nextElementSibling.innerHTML = "Invalid Phone Number";
                 fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
                 check = false;
                 errArr.push(fields[i]);
@@ -120,7 +104,7 @@
             if (fields[i].id === 'email') {
                 val = isValidEmail(fields[i]);
                 if(val === false) {
-                    fields[i].nextElementSibling.innerHTML = "Hmmm! Your email address is not valid?";
+                    fields[i].nextElementSibling.innerHTML = "Invalid Email Address";
                     fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
                     check = false;
                     errArr.push(fields[i]);
