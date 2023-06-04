@@ -21,24 +21,160 @@
         </ul>
     </header>
     <h1>Contact About Java Bean Coffee Co.</h1>
-    <form name="Contact" method="post" action="#">
-        <label for="fname">First Name</label>
-        <input type="text" id="fname" name="firstname" placeholder="First Name">
-        <br>
-        <label for="lname">Last Name</label>
-        <input type="text" id="lname" name="lastname" placeholder="Last Name">
-        <br>
-        <label for="email">Email</label>
-        <input type="text" id="email" name="email" placeholder="Email Address">
-        <br>
-        <label for="subject">Subject</label>
-        <textarea id="subject" name="subject" placeholder="Comments and Questions Go Here"
-            style="height: 200px;"></textarea>
-            </textarea>
-        <br>
-        <input type="submit" value="submit">
-        </form>
+    <form id="contactForm" class="form-horizontal">
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Full name</label>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" name="firstName" placeholder="First name" />
+            </div>
+            <div class="col-xs-4">
+                <input type="text" class="form-control" name="lastName" placeholder="Last name" />
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Phone number</label>
+            <div class="col-xs-5">
+                <input type="text" class="form-control" name="phoneNumber" />
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Email address</label>
+            <div class="col-xs-5">
+                <input type="text" class="form-control" name="email" />
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <label class="col-xs-3 control-label">Message</label>
+            <div class="col-xs-9">
+                <textarea class="form-control" name="message" rows="7"></textarea>
+            </div>
+        </div>
+    
+        <div class="form-group">
+            <div class="col-xs-9 col-xs-offset-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+    </form>
+    
+    <script>
+   var validate = function(e) {
+    var fields = document.querySelectorAll('.form-container textarea, .form-container input[type="text"]');
+    var regEx;
+    var removeSpan;
+    var par;
+    var check = false;
+    var val;
+    var errArr = [];
 
+    for (var i = 0; i < fields.length; i++) {
+        if (fields[i].value === "") {
+          
+            if (fields[i].nextElementSibling.classList.contains('error')) {
+              removeSpan = fields[i].nextElementSibling;
+              par = fields[i].parentNode;
+              par.removeChild(removeSpan);
+              fields[i].nextElementSibling.innerHTML = "Hmmm! " + fields[i].placeholder + " is required?";
+              fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
+              check = false;
+              errArr.push(fields[i]);
+            }
+            fields[i].nextElementSibling.innerHTML = "Hmmm! " + fields[i].placeholder + " is required?";
+            fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
+            check = false;
+            errArr.push(fields[i]);
+        } else {
+
+            // check if message and name values contain valid characters.
+            if (fields[i].id !== 'email' && fields[i].id !== 'phone') {
+                val = isValidChar(fields[i]);
+                if(val === false) {
+                  fields[i].nextElementSibling.innerHTML = "Are you trying to HACK ME!";
+                  fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
+                  check = false;
+                  errArr.push(fields[i]);
+                } else {
+                  fields[i].nextElementSibling.innerHTML = "";
+                  fields[i].style.boxShadow = "none";
+                  check = true;
+                }
+            }
+          
+            if(fields[i].id === 'phone') {
+              val = isValidPhone(fields[i]);
+              if(val === false) {
+                fields[i].nextElementSibling.innerHTML = "Hmmm! Your phone number is not valid?";
+                fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
+                check = false;
+                errArr.push(fields[i]);
+              } else {
+                fields[i].nextElementSibling.innerHTML = "";
+                fields[i].style.boxShadow = "none";
+                check = true;  
+              }
+            }
+
+            if (fields[i].id === 'email') {
+                val = isValidEmail(fields[i]);
+                if(val === false) {
+                    fields[i].nextElementSibling.innerHTML = "Hmmm! Your email address is not valid?";
+                    fields[i].style.boxShadow = "0 0 2px 1px #cc0001";
+                    check = false;
+                    errArr.push(fields[i]);
+                } else {
+                    fields[i].nextElementSibling.innerHTML = "";
+                    fields[i].style.boxShadow = "none";
+                    check = true;
+                }
+            }
+        }
+    }
+  
+    if(check === false) {
+      var count = 0;
+      var toErr = setInterval(function() {
+        var e = errArr[0].offsetTop + -25;
+        var pos = Math.abs(e);
+        if(count < pos) {
+          count ++;
+          window.scrollTo(0, count);
+        } else {
+          clearInterval(toErr);
+        }
+      }, 1);
+    }
+    
+    return check
+
+    // Helper functions.
+    function isValidEmail(e) {
+        regEx = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
+        var email = e.value;
+        if (!regEx.test(email)) {
+            return false;
+        }
+    }
+
+    function isValidChar(e) {
+        regEx = /^[a-zA-Z@#$%!?^&*()_+\-=\[\]{};':"\\|,.\/? ]*$/;
+        var value = e.value;
+        if (!regEx.test(value)) {
+            return false;
+        }
+    }
+  
+    function isValidPhone(e) {
+      regEx = /^[+]?[(]?[+]?\d{2,4}[)]?[-\s]?\d{2,8}[-\s]?\d{2,8}$/;
+      var value = e.value;
+      if(!regEx.test(value)) {
+        return false;
+      }
+    }
+};
+    </script>
 
     </body>
 </html>
