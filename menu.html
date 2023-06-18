@@ -1,26 +1,86 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Our Menu</title>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="stylesheet.css">
+<title>Java Been Coffee Co. <Menu></Menu></title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body>
-    <h1 style="text-align:center; color:#883E24; font-family:Futura;">Java Bean Coffee Co.</h1>
-    <div class="logo">
-        <img src="javabean.png" alt="Java Bean Coffee Co. logo" class="center">
+<body cz-shortcut-listen="true">
+
+    <div class="topnav" id="myTopnav">
+        <a href="index.html" class="active">Home</a>
+        <a href="menu.html">Menu</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+        <a href="locations.html">Locations</a>
+        <a href="javascript:void(0)" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars">
+            </i>
+        </a>
+      </div>
     </div>
-    <header>
-        <ul class="navigation">
-            <li><a href="index.html"><i class="fas fa-home home"></i>Home</a></li>
-            <li><a href="about.html"><i class="fas fa-users team"></i>About</a></li>
-            <li><a href="menu.html"><i class="fas fa-align-left works"></i>Menu</a></li>
-            <li><a href="contact.html"><i class="fas fa-headset contact"></i>Contact</a></li>
-            <li><a href="locations.html"><i class="fas fa-home home"></i>Locations</a></li>
-        </ul>
-    </header>
-    <h1>The Menu</h1>
-    folders with the menu categories here
-    </body>
+
+<div class="logo">
+    <img src="images/logo.png" alt="Java Been Coffee Co. logo" style="width: 125px; height: auto;">
+</div>
+
+<div class="center">
+    <h1>Our Menu</h1>
+</div>
+
+<table style="width:75%" class="center";>
+  <tr>
+    <th colspan="3">Drinks (Available Hot or Iced)</th>
+  </tr>
+  <tr>
+    <td>Latte</td>
+    <td>Two shots of espresso and steamed milk</td>
+    <td>$4.50</td>
+  </tr>
+  <tr>
+    <td>Americano</td>
+    <td>Two shots of espresso and water</td>
+    <td>$3.50</td>
+  </tr>
+  <tr>
+    <td>Macchiato</td>
+    <td>Two shots of espresso and steamed milk, topped with milk foam</td>
+    <td>$4.50</td>
+  </tr>
+</table>
+<br>
+<table style="width:75%" class="center";>
+<tr>
+    <th colspan="3">Available Flavors</th>
+  </tr>
+  <tr>
+    <td>French Vanilla</td>
+    <td>Mocha</td>
+    <td>Caramel</td>
+  </tr>
+  <tr>
+    <td>Hazelnut</td>
+    <td>Brown Sugar Cinnamon</td>
+    <td>Pepermint</td>
+  </tr>
+  <tr>
+    <td>Pumpkin Spice</td>
+    <td>Sugar-Free Caramel</td>
+    <td>Sugar-Free Vanilla</td>
+  </tr>
+</table>
+
+<script>
+    function myFunction () {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+</body>
 </html>

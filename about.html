@@ -1,26 +1,55 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>About Java Bean Coffee Co.</title>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.0/jquery.min.js"></script>
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-        <link rel="stylesheet" href="stylesheet.css">
-    </head>
-    <body>
-        <h1 style="text-align:center; color:#883E24; font-family:Futura;">About Java Bean Coffee Co.</h1>
-        <div class="logo">
-            <img src="javabean.png" alt="Java Bean Coffee Co. logo" class="center">
-        </div>
-        <header>
-            <ul class="navigation">
-                <li><a href="index.html"><i class="fas fa-home home"></i>Home</a></li>
-                <li><a href="about.html"><i class="fas fa-users team"></i>About</a></li>
-                <li><a href="menu.html"><i class="fas fa-align-left works"></i>Menu</a></li>
-                <li><a href="contact.html"><i class="fas fa-headset contact"></i>Contact</a></li>
-                <li><a href="locations.html"><i class="fas fa-home home"></i>Locations</a></li>
-            </ul>
-        </header>
-        <h1>All About Java Bean Coffee Co.</h1>
-        <img src="images/staff.jpg" alt="overhead image of coffee shop staff" class="width">
-        <p>text here</p>
-        </body>
+<html lang="en">
+<head>
+<title>About Java Been Coffee Co.</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body cz-shortcut-listen="true">
+
+<div class="topnav" id="myTopnav">
+    <a href="index.html" class="active">Home</a>
+    <a href="menu.html">Menu</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="locations.html">Locations</a>
+        <a href="javascript:void(0)" class="icon" onclick="myFunction()">
+            <i class="fa fa-bars">
+            </i>
+        </a>
+      </div>
+</div>
+
+<div class="logo">
+    <img src="images/logo.png" alt="Java Been Coffee Co. logo" style="width: 125px; height: auto;">
+</div>
+
+<div class="bulk">
+    <h1>All About Java Been!</h1>
+    <br>
+    <h3>
+        Java Been Coffee Co. was founded in 2015 in the kitchen of two coffee lovers! What started out as bringing coffee to coworkers turned into a full-time
+        coffee business! All of our beans are responsibly harvested from Colombia, and are sold pre-ground or as whole beans at local stores!
+    </h3>
+    <br>
+    <h1> Our Vision</h1>
+    <h3>
+        We want to be able to provide flavorful coffee to home across the country, to give people the taste of their favorite cup of coffee each and every day.
+    </h3>
+</div>
+
+<script>
+    function myFunction () {
+        var x = document.getElementById("myTopnav");
+        if (x.className === "topnav") {
+            x.className += " responsive";
+        } else {
+            x.className = "topnav";
+        }
+    }
+</script>
+</body>
+</html>
